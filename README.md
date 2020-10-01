@@ -3,7 +3,7 @@
 
 ## Getting Started
 
-Everything needed to generate julia and mandelbrot fractals has been implemented within the Julia class included in modules/julia.js. I have gone ahead and built a UI with some controls to play around in. A live demo is availible at https://aeroses.github.io/JuliaJs/. 
+Everything needed to generate julia and mandelbrot fractals has been implemented within the Julia class included in modules/julia.js. I have gone ahead and built a UI with some controls to play around in. A live demo is availible at https://rosealexander.github.io/fractal-generator/. 
 
 ## License
 

@@ -15,9 +15,9 @@ export class Fractal {
         let imgData = this._ctx.createImageData(width, height);
 
         //scale to screen orientation
-        let stretch = /iPhone|iPad|iPod/i.test(navigator.userAgent) ?
-             screen.width / screen.height
-             : width / height;
+        let stretch = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+            ? screen.width / screen.height
+            : width / height;
 
         console.log(`W: ${width}, H${height}`);
         //mandelbrot formula

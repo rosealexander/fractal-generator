@@ -17,9 +17,9 @@ export const setCanvasResizeEvent = func => {
         //Reset width to match browser window dimensions
         const _resetCanvasWidth = () => {
             const canvas = document.querySelector('canvas');
-            /iPhone|iPad|iPod/i.test(navigator.userAgent) ?
-                window.innerHeight > window.innerWidth ?
-                    canvas.width = screen.width * window.devicePixelRatio
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+                ? window.innerHeight > window.innerWidth
+                    ? canvas.width = screen.width * window.devicePixelRatio
                     : canvas.width = screen.height * window.devicePixelRatio
                 : canvas.width = window.innerWidth * window.devicePixelRatio;
         }
@@ -27,9 +27,9 @@ export const setCanvasResizeEvent = func => {
         //Reset height to match browser window dimensions
         const _resetCanvasHeight = () => {
             const canvas = document.querySelector('canvas');
-            /iPhone|iPad|iPod/i.test(navigator.userAgent) ?
-                window.innerHeight > window.innerWidth ?
-                    canvas.height = 1.04 * screen.height * window.devicePixelRatio
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+                ? window.innerHeight > window.innerWidth
+                    ? canvas.height = 1.04 * screen.height * window.devicePixelRatio
                     : canvas.height = 1.04 * screen.width * window.devicePixelRatio
                 : canvas.height = 1.04 * window.innerHeight * window.devicePixelRatio;
         }

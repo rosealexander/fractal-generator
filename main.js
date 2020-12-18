@@ -1,5 +1,5 @@
-import {setCanvasResizeEvent, setClickEvent} from "./module/Utility.js";
-import {Fractal} from "./module/Fractal.js";
+import {setCanvasResizeEvent, setClickEvent} from "./src/Utility.js";
+import {Fractal} from "./src/Fractal.js";
 
 (() => {
     let fractal = new Fractal();

@@ -267,6 +267,7 @@ textarea {
 
 canvas {
   z-index: -1;
+  height: 104vh;
 }
 
 ul {

@@ -1,54 +1,117 @@
 <!doctype html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name='viewport' content= "width=device-width"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Fractal Generator.">
+
   <title>JuliaJs</title>
-  <link rel="stylesheet" href="css/main.css">
-  <!-- Favicon tags -->
+
+  <meta property="og:title" content="Conway's Game Of Life">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rosealexander.github.io/game-of-life/">
+
+  <!--
+  <link rel="manifest" href="site.webmanifest">
+  -->
   <link rel="shortcut icon" type="image/png" href="favicon/favicon-192x192.png">
   <link rel="shortcut icon" sizes="196x196" href="favicon/favicon-192x192.png">
   <link rel="apple-touch-icon" href="favicon/favicon-192x192.png">
   <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
-  <!-- import svg from FontAwesome -->
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/eb0d9a81e5.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="main.css">
+
 </head>
 
 <body >
-<div id="loading-container">
-  <i id="spinner" class="fas fa-spinner"></i>
-  <i id="hour-glass" class="fas fa-hourglass-half"></i>
-</div>
-
-<div id="rotate-device-container">
-  <i class="fas fa-reply fa-rotate-270 fa-xs"></i>
-  <i class="fas fa-mobile-alt fa-lg"></i>
-  <i class="fas fa-reply fa-rotate-90 fa-xs" ></i>
-</div>
-<div id="screen" class="fade-in"></div>
-
-<div id="buttons">
-  <div>
-    <span id="zoom-out"><i  class="fas fa-minus-circle"></i></span>
-    <span id="arrow-up"><i class="fas fa-arrow-circle-up"></i></span>
-    <span id="zoom-in"><i class="fas fa-plus-circle"></i></span>
+<!-- Page Content -->
+<section class="position-fixed">
+  <div class="container mt-4 ml-2">
+    <div class="row timed-hidden-12">
+      <div class="col-5">
+        <p class="text-white bd-highlight user-select-none timed-fade-12">
+          Use the <strong>Arrow Buttons</strong> to navigate through the environment.
+        </p>
+      </div>
+    </div>
   </div>
-  <div>
-    <span id="arrow-left"><i class="fas fa-arrow-circle-left"></i></span>
-    <span id="arrow-right"><i class="fas fa-arrow-circle-right"></i></span>
+</section>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="fixed-bottom ml-2 mb-3 container text-white">
+    <div class="py-0">
+      <h6 class="disabled ">Mandelbrot Set</h6>
+      <div class="py-0">
+        <a class="text-light" href="https://en.wikipedia.org/wiki/Mandelbrot_set"><small>Wiki</small></a>
+      </div>
+      <div class="py-1">
+        <a class="text-light" href="https://github.com/rosealexander/fractal-generator"><small>Github</small></a>
+      </div>
+    </div>
   </div>
-  <span>
-    <span id="switch-on"><i class="fas fa-toggle-on"></i></span>
-    <span id="switch-off"><i class="fas fa-toggle-off"></i></span>
-    <span id="arrow-down"><i class="fas fa-arrow-circle-down"></i></span>
-    <span id="random"><i class="fas fa-random"></i></span>
-  </span>
+</nav>
+
+<!-- Buttons -->
+<div class="text-white position-fixed" id="buttons">
+  <div class="container mb-3 mr-3">
+    <div class="row">
+      <div class="col-12">
+        <span id="zoom-out">
+          <i class="fas fa-minus-circle fa-lg"></i>
+        </span>
+        <span id="arrow-up">
+          <i class="fas fa-arrow-circle-up fa-3x"></i>
+        </span>
+        <span id="zoom-in">
+          <i class=" fas fa-plus-circle fa-lg"></i>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <span id="arrow-left">
+          <i class="fas fa-arrow-circle-left fa-3x"></i>
+        </span>
+        <span id="arrow-right">
+          <i class="fas fa-arrow-circle-right fa-3x"></i>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <span class="ml-4" id="arrow-down">
+          <i class="fas fa-arrow-circle-down fa-3x"></i>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 
-<canvas id="canvas"></canvas>
+<!-- Canvas -->
+<canvas class="position-fixed mx-auto" id="canvas"></canvas>
 
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-- Core JS -->
 <script type="module" src="main.js"></script>
 
 </body>
+
+
 </html>

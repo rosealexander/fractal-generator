@@ -4,7 +4,6 @@ export class Fractal {
     constructor() {
         this._canvas = document.getElementById("canvas");
         this._ctx = document.getElementById("canvas").getContext("2d");
-        this._ctx.imageSmoothingQuality = "high";
         this._zoom = 1;
         this._moveX = 0;
         this._moveY = 0;
@@ -17,7 +16,6 @@ export class Fractal {
         //scale to screen orientation
         let stretch = window.innerWidth / window.innerHeight;
 
-        console.log(`W: ${width}, H${height}`);
         //mandelbrot formula
         for (let pX = 0, w = width; pX < w; pX++)
         {
@@ -31,8 +29,8 @@ export class Fractal {
 
                 //optimize settings
                 let x = 0, y = 0, iteration = 0,
-                    maxIteration = zoom < 2**4 ? 400 : 1000,
-                    escapeRadius = zoom < 2**4 ? 16 : 4;
+                    maxIteration = zoom < 2**5 ? 400 : 1000,
+                    escapeRadius = zoom < 2**5 ? 16 : 4;
 
                 //calculate iteration
                 while (x*x + y*y <= escapeRadius && iteration < maxIteration)

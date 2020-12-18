@@ -286,8 +286,16 @@ a:link, a:visited {
   bottom: 0;
 }
 
-#buttons svg:hover {
+#buttons svg:focus, #buttons svg:active{
   color: #cccccc;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #buttons svg:hover { color: #cccccc; }
+}
+
+#load-icon{
+  display: unset;
 }
 
 .timed-hidden-12 {

@@ -43,13 +43,14 @@ export const setCanvasResizeEvent = func => {
 /**
  * Creates event listener "click" binding a function call to a HTML element.
  * Function will be called whenever the click event is delivered to the HTML element.
- * @param   {HTMLElement} elementId      The HTML element ID.
- * @param   {function} func              The function.
+ * @param   {HTMLElement} elementId      HTML element ID.
+ * @param   {function} callback          Callback.
+ * @param   {any} param                  Callback Argument.
  * @return  void
  */
-export const setClickEvent = (elementId, func) => {
+export const setClickEvent = (elementId, callback, param = null) => {
     document.getElementById(elementId).addEventListener("click", function () {
-        func();
+        callback(param);
     });
 };
 

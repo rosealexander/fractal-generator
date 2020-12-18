@@ -49,7 +49,9 @@ export class Fractal {
 
                 //color filter
                 let k = 11 - zoom/2;
-                if (zoom > 2**4) {
+                if (zoom === 2**4)
+                    k = 4;
+                else if (zoom > 2**4) {
                     k = 3 - Math.log(zoom)/10;
                     k = k < 1 ? 1 : k;
                 }

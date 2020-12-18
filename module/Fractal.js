@@ -13,10 +13,13 @@ export class Fractal {
     _drawMandelbrot(width, height, zoom, moveX, moveY) {
         //pixel info as 4 byte rgba
         let imgData = this._ctx.createImageData(width, height);
-        let h2, s2, l2;
 
-        //scale or screen orientation
-        let stretch = width > height ? 1.5 : 1;
+        //scale to screen orientation
+        let stretch = /iPhone|iPad|iPod/i.test(navigator.userAgent) ?
+             screen.width / screen.height
+             : width / height;
+
+        console.log(`W: ${width}, H${height}`);
         //mandelbrot formula
         for (let pX = 0, w = width; pX < w; pX++)
         {
@@ -66,7 +69,7 @@ export class Fractal {
                 imgData.data[pos+3] = 255;
             }
         }
-        //return imgData;
+        //draw imgData;
         this._ctx.putImageData(imgData, 0, 0);
     }
 

@@ -9,7 +9,7 @@ export const setCanvasResizeEvent = func => {
         let timer;
         return event => {
             if(timer) { clearTimeout(timer);}
-            timer = setTimeout(func,50,event);
+            timer = setTimeout(func,32,event);
         };
     };
 
